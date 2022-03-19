@@ -5,39 +5,17 @@ function computerPlay () {
     console.log(`The computer chose: ${computerChoice} !`);
     return(computerChoice);
 }
-//Ask payer for their input
-// function playerPlay() {
-//     let rock= "rock"
-//     let paper= "paper"
-//     let scissors= "scissors"
-//     let playerChoice= prompt("Please write 'paper', 'rock' or 'scissors' to choose your play ");
 
-//     if (playerChoice.toLowerCase() === rock.toLowerCase() ){
-//         playerChoice = "rock" // foreces player choice to be lowecase (for some reason code above does not work)
-//         console.log(`Player chose ${playerChoice}`);
-//     }
-//         else if (playerChoice.toLowerCase() === paper.toLowerCase() ){
-//             playerChoice = "paper"
-//         console.log(`Player chose ${playerChoice}`)
-//         }
-//         else if(playerChoice.toLowerCase() === scissors.toLowerCase() ){
-//             playerChoice = "scissors"
-//             console.log(`Player chose ${playerChoice}`)
-//         }
-//         else {alert("You did not enter any of the correct options")}
-//     return(playerChoice);
- 
-// }
 
 let playerScore = 0;
 let computerScore = 0;
+let playerChoice;
 
-function playRound () {
+function playRound (playerChoice) {
 
     let rock= "rock"
     let paper= "paper"
     let scissors= "scissors"
-    let playerChoice= prompt("Please write 'paper', 'rock' or 'scissors' to choose your play ");
 
     if (playerChoice.toLowerCase() === rock.toLowerCase() ){
         playerChoice = "rock" // foreces player choice to be lowecase (for some reason code above does not work)
@@ -104,18 +82,50 @@ else {console.log("error", computerChoice, playerChoice, computerScore, playerSc
 
 }
 
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+buttons.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        if (e.target.className == "btn1") {
+            playerChoice = "rock";
+            playRound(playerChoice);
+            content.textContent = `Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}`;
+        }
+        else if (e.target.className == "btn2") {
+            playerChoice = "paper";
+            playRound(playerChoice);
+            content.textContent = `Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}`;
+        }
+        else if (e.target.className == "btn3") {
+            playerChoice = "scissors";
+            playRound(playerChoice);
+            content.textContent = `Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}`;
+        }
+});
+});
+
+
+
+
 const computerChoice = computerPlay();
-//const playerChoice = playerPlay();
- function game() {
-     let playerPoints = 0;
-     let computerPoints = 0;
-    for (i=1; i<5; i++){
-    computerPlay();
-    playRound();
-    playerPoints = playerPoints + playerScore;
-    computerPoints = computerPoints + computerScore;
-    console.log(playerPoints, playerScore, computerPoints, computerScore,);
-    console.log(`Player Score is ${playerPoints} || Computer Score is ${computerPoints}`);
-    };
-}
-game();
+// const playerChoice = playerPlay();
+//   function game() {
+//       let playerPoints = 0;
+//       let computerPoints = 0;
+//      for (i=1; i<5; i++){
+//      computerPlay();
+//      playRound();
+//      playerPoints = playerPoints + playerScore;
+//      computerPoints = computerPoints + computerScore;
+//      console.log(playerPoints, playerScore, computerPoints, computerScore,);
+//      console.log(`Player Score is ${playerPoints} || Computer Score is ${computerPoints}`);
+//     };
+//  }
+
+
+const container = document.querySelector('#container');
+const content = document.createElement('div');
+content.classList.add('content');
+
+
+container.appendChild(content);
