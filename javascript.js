@@ -7,12 +7,9 @@ function computerPlay () {
 }
 
 
-let playerScore = 0;
-let computerScore = 0;
-let playerChoice;
 
 function playRound (playerChoice) {
-
+    const computerChoice = computerPlay();
     let rock= "rock"
     let paper= "paper"
     let scissors= "scissors"
@@ -32,20 +29,18 @@ function playRound (playerChoice) {
         else {alert("You did not enter any of the correct options")}
 
 
-    
  //ROCK
     if (playerChoice === "rock" && computerChoice === "rock"  ) {
       console.log(`Both players chose rock, DRAW | Score: Player ${playerScore} AI ${computerScore} `);
     }
-  else if (playerChoice === "rock" && computerChoice === "paper" ) {
-    computerScore = 1;
-    playerScore = 0;
-    console.log(`Computer wins ${computerChoice} wrapps ${playerChoice} | Score: Player ${playerScore} AI ${computerScore}  `);
+        else if (playerChoice === "rock" && computerChoice === "paper" ) {
+         computerScore += 1;
+         console.log(`Computer wins ${computerChoice} wrapps ${playerChoice} | Score: Player ${playerScore} AI ${computerScore}  `);
+
    }
-   else if (playerChoice === "rock" && computerChoice === "scissors" ) {
-    computerScore = 0;
-    playerScore = 1;
-    console.log(`Player wins ${playerChoice} destroys ${computerChoice} | Score: Player ${playerScore} AI ${computerScore} `);
+        else if (playerChoice === "rock" && computerChoice === "scissors" ) {
+        playerScore += 1;
+         console.log(`Player wins ${playerChoice} destroys ${computerChoice} | Score: Player ${playerScore} AI ${computerScore} `);
    }
 
 //PAPER
@@ -53,13 +48,11 @@ function playRound (playerChoice) {
     console.log(`Both players chose ${playerChoice}, DRAW | Score: Player ${playerScore} AI ${computerScore} `);
    }
    else if (playerChoice === "paper" && computerChoice === "rock" ) {
-    computerScore = 0;
-    playerScore = 1;
+    playerScore += 1;
     console.log(`Player wins ${playerChoice} wrapps ${computerChoice} | Score: Player ${playerScore} AI ${computerScore} `);
    }
    else if (playerChoice === "paper" && computerChoice === "scissors" ) {
-    computerScore = 1;
-    playerScore = 0;
+    computerScore += 1;
     console.log(`Computer wins ${computerChoice} cuts ${playerChoice} | Score: Player ${playerScore} AI ${computerScore}  `);
    }
 
@@ -68,53 +61,68 @@ else if (playerChoice === "scissors" && computerChoice === "scissors" ) {
     console.log(`Both players chose ${playerChoice}, DRAW | Score: Player ${playerScore} AI ${computerScore} `);
  }
  else if (playerChoice === "scissors" && computerChoice === "rock" ) {
-    computerScore = 1;
-    playerScore = 0;
+    computerScore += 1;
     console.log(`Computer wins ${computerChoice} destroys ${playerChoice} | Score: Player ${playerScore} AI ${computerScore}  `);
  }
  else if (playerChoice === "scissors" && computerChoice === "paper" ) {
-    computerScore = 0;
-    playerScore = 1;
+    playerScore += 1;
     console.log(`Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}  `);
  }
 else {console.log("error", computerChoice, playerChoice, computerScore, playerScore)}
 
 
 }
+let playerScore = 0;
+let computerScore = 0;
+let playerChoice;
+
 
 const buttons = document.querySelectorAll('button');
 console.log(buttons);
-buttons.forEach((button) => {
-    button.addEventListener('click', function(e) {
+buttons.forEach((button) => 
+{
+    button.addEventListener('click', function(e) 
+    {
+       
+
+        for (i=1; i<2; i++)
+        {
+
+
         if (e.target.className == "btn1") {
             playerChoice = "rock";
-            playRound(playerChoice);
-            content.textContent = `Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}`;
         }
         else if (e.target.className == "btn2") {
             playerChoice = "paper";
-            playRound(playerChoice);
-            content.textContent = `Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}`;
         }
         else if (e.target.className == "btn3") {
-            playerChoice = "scissors";
-            playRound(playerChoice);
-            content.textContent = `Player wins ${playerChoice} cuts ${computerChoice} | Score: Player ${playerScore} AI ${computerScore}`;
+            playerChoice = "scissors";  
         }
+        console.log(i);
+        }
+    playRound(playerChoice);
+    content.textContent = `Player Score is ${playerScore} || Computer Score is ${computerScore}`;
+    if(playerScore==5)
+    {
+    content.textContent = `Player WINS! With a score of ${playerScore}`;
+    }
+    else if(computerScore==5) 
+    {
+    content.textContent = `Computer WINS! With a score of ${computerScore}`;
+    }
+    });
 });
-});
 
 
 
 
-const computerChoice = computerPlay();
+
+
 // const playerChoice = playerPlay();
 //   function game() {
 //       let playerPoints = 0;
 //       let computerPoints = 0;
 //      for (i=1; i<5; i++){
-//      computerPlay();
-//      playRound();
 //      playerPoints = playerPoints + playerScore;
 //      computerPoints = computerPoints + computerScore;
 //      console.log(playerPoints, playerScore, computerPoints, computerScore,);
@@ -126,6 +134,4 @@ const computerChoice = computerPlay();
 const container = document.querySelector('#container');
 const content = document.createElement('div');
 content.classList.add('content');
-
-
 container.appendChild(content);
