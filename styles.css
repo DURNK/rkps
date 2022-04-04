@@ -1,0 +1,171 @@
+body {
+    font-family: "Roboto", sans-serif ;
+    margin: 0px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #e5e7eb;
+    transition: 0.5s;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    box-sizing: border-box;
+    padding: 30px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #e5e7eb;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+/*button 1*/
+.btn1 {
+    color: #000;
+}
+.btn1::after,
+.btn1::before {
+  border: 10px solid #000;
+  content: "";
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.btn1:hover::after {
+  transform: translate(-10px, -10px);
+}
+
+.btn1:hover::before {
+  transform: translate(10px, 10px);
+}
+/*button 3*/
+.btn3 {
+    color: #000;
+
+}
+.btn3::after,
+.btn3::before {
+  border: 10px solid #000;
+  content: "";
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.btn3:hover::after {
+  transform: translate(-10px, -10px);
+}
+
+.btn3:hover::before {
+  transform: translate(10px, 10px);
+}
+/*button 2 style */
+.btn2 {
+    color: #000;
+  }
+  
+  .btn2::after,
+  .btn2::before {
+    border: 10px solid #000;
+    content: "";
+    position: absolute;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn2:hover::after {
+    transform: translate(-10px, -10px);
+  }
+  
+  .btn2:hover::before {
+    transform: translate(10px, 10px);
+  }
+/*Button 2style*/  
+
+.btn3, .btn1, .btn2 {
+    width: 80%;
+    font-size: 90px;
+    padding: 20px 50px;
+    margin: 32px ;
+}
+ul {
+    list-style-type: none;
+}
+
+.header-links {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    margin: 0px;
+    padding: 0px;
+    gap: 20px;
+}
+.content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 30px;
+    background-color: #e5e7eb;
+}
+.fiona{
+    display: flex;   
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.compchoice {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 40px;
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    padding: 0px;
+    width: 100%;
+    font-size: 1.25rem;
+    position: relative;
+    border-radius: 30px;
+    color: #000;
+}
+p {
+    font-size: 30px;
+    margin: 0px;
+    padding: 0px;
+}
