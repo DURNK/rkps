@@ -50,13 +50,14 @@ let playerScore = 0;
 let computerScore = 0;
 let playerChoice;
 
+const btn1 = document.getElementsByClassName("btn1");
 
+let compchoice1 = document.getElementById("compchoice")
 const buttons = document.querySelectorAll('a');
 buttons.forEach((a) => 
 {
     a.addEventListener('click', function(e) 
     {
-       
 
         for (i=1; i<10; i++)
         {
@@ -67,6 +68,9 @@ buttons.forEach((a) =>
         }
         else if (e.target.className == "btn2") {
             playerChoice = "paper";
+            document.getElementById("body").style.backgroundImage = "url(paper.jpg)";
+
+
         }
         else if (e.target.className == "btn3") {
             playerChoice = "scissors";  
@@ -96,14 +100,9 @@ buttons.forEach((a) =>
 
 
     });
-    a.addEventListener("mouseover", function(){
-    document.getElementById("body").style.background="green"
-    })
+  
+
 });
-
-
-
-
 
     
 

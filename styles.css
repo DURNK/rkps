@@ -7,6 +7,8 @@ body {
     justify-content: space-between;
     background-color: #e5e7eb;
     transition: 0.5s;
+    background-size: 100% auto;
+
 }
 
 
@@ -153,6 +155,14 @@ ul {
     text-align: center;
     width: 100%;
     color: white;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+.compchoice.fade {
+  opacity: 0;
+}
+.compchoice.full {
+  opacity: 1;
 }
 
 a {
